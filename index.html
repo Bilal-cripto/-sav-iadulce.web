@@ -13,7 +13,6 @@ background:#fffaf6;
 color:#222;
 }
 
-/* HEADER */
 header{
 background:linear-gradient(135deg,#ffb6b9,#fae3d9);
 padding:60px 20px;
@@ -22,10 +21,8 @@ text-align:center;
 
 header h1{
 font-size:3rem;
-margin-bottom:10px;
 }
 
-/* NAV */
 nav{
 display:flex;
 justify-content:center;
@@ -45,11 +42,17 @@ font-weight:bold;
 cursor:pointer;
 }
 
-/* GRID */
 .container{
 max-width:1100px;
 margin:auto;
 padding:20px;
+}
+
+.section{
+padding:40px 20px;
+max-width:900px;
+margin:auto;
+text-align:center;
 }
 
 .grid{
@@ -58,7 +61,6 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-/* CARD */
 .card{
 background:white;
 border-radius:15px;
@@ -96,7 +98,6 @@ cursor:pointer;
 margin-top:10px;
 }
 
-/* FOOTER */
 footer{
 text-align:center;
 padding:30px;
@@ -110,18 +111,17 @@ color:#ff6b6b;
 text-decoration:none;
 }
 
-/* WHATSAPP FLOAT */
-.whatsapp{
+/* CART */
+.cart{
 position:fixed;
 bottom:20px;
 right:20px;
-background:#25D366;
+background:#ff6b6b;
 color:white;
 padding:15px 18px;
 border-radius:50px;
-font-size:20px;
-text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
+cursor:pointer;
+font-weight:bold;
 }
 </style>
 </head>
@@ -140,65 +140,76 @@ box-shadow:0 5px 15px rgba(0,0,0,0.3);
 <button onclick="filter('protein')">Proteicos</button>
 </nav>
 
+<!-- 🧁 SOBRE LA MARCA -->
+<div class="section">
+<h2>🌿 Sobre SaVía Dulce</h2>
+<p>
+SaVía Dulce es una pastelería saludable creada para disfrutar del dulce sin culpa.  
+Usamos ingredientes naturales, menos azúcar refinada y opciones equilibradas para cuidar tu estilo de vida sin renunciar al sabor.  
+Nuestro objetivo es unir <b>placer + salud + creatividad</b> en cada postre.
+</p>
+</div>
+
 <div class="container">
 <div class="grid">
 
-<!-- CHEESECAKE -->
+<!-- PRODUCTOS -->
 <div class="card fit">
-<img src="https://images.unsplash.com/photo-1505253213348-cd54c92b37a9" alt="">
+<img src="https://images.unsplash.com/photo-1505253213348-cd54c92b37a9">
 <div class="card-content">
 <h3>Cheesecake Fit</h3>
 <p>Sin azúcar refinada + avena</p>
 <p class="price">4.50€</p>
-<button class="add">Añadir</button>
+<button class="add" onclick="add()">Añadir</button>
 </div>
 </div>
 
-<!-- BROWNIE -->
 <div class="card protein">
-<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="">
+<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c">
 <div class="card-content">
 <h3>Brownie Proteico</h3>
 <p>Cacao puro + proteína</p>
 <p class="price">3.90€</p>
-<button class="add">Añadir</button>
+<button class="add" onclick="add()">Añadir</button>
 </div>
 </div>
 
-<!-- BIZCOCHO -->
 <div class="card low">
-<img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec" alt="">
+<img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
 <div class="card-content">
 <h3>Bizcocho Natural</h3>
 <p>Sin azúcar añadido</p>
 <p class="price">3.20€</p>
-<button class="add">Añadir</button>
+<button class="add" onclick="add()">Añadir</button>
 </div>
 </div>
 
-<!-- CALABAZA -->
 <div class="card fit low">
-<img src="https://images.unsplash.com/photo-1608198092854-9c6a7c1c6b36" alt="">
+<img src="https://images.unsplash.com/photo-1608198092854-9c6a7c1c6b36">
 <div class="card-content">
 <h3>Bizcocho de Calabaza 🎃</h3>
-<p>Calabaza + especias naturales + ligero</p>
+<p>Calabaza + especias naturales</p>
 <p class="price">3.80€</p>
-<button class="add">Añadir</button>
+<button class="add" onclick="add()">Añadir</button>
 </div>
 </div>
 
-<!-- COOKIES -->
 <div class="card protein">
-<img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e" alt="">
+<img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e">
 <div class="card-content">
 <h3>Cookies Fit</h3>
 <p>Snack proteico post-entreno</p>
 <p class="price">2.80€</p>
-<button class="add">Añadir</button>
+<button class="add" onclick="add()">Añadir</button>
 </div>
 </div>
 
 </div>
+</div>
+
+<!-- CART -->
+<div class="cart" onclick="checkout()">
+🛒 <span id="count">0</span>
 </div>
 
 <footer>
@@ -217,12 +228,19 @@ box-shadow:0 5px 15px rgba(0,0,0,0.3);
 <p>🍰 SaVía Dulce | Dulces saludables hechos con amor</p>
 </footer>
 
-<!-- WHATSAPP FLOAT BUTTON -->
-<a class="whatsapp" href="https://wa.me/34633431821" target="_blank">
-💬
-</a>
-
 <script>
+
+let cart = 0;
+
+function add(){
+cart++;
+document.getElementById("count").innerText = cart;
+}
+
+function checkout(){
+alert("Pedido simulado 🛒💖 Contacta por WhatsApp para pedidos reales.");
+}
+
 function filter(type){
 let cards = document.querySelectorAll(".card");
 
@@ -234,6 +252,7 @@ c.style.display="none";
 }
 });
 }
+
 </script>
 
 </body>
