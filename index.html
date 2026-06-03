@@ -13,14 +13,19 @@ background:#fffaf6;
 color:#222;
 }
 
+/* HEADER */
 header{
 background:linear-gradient(135deg,#ffb6b9,#fae3d9);
 padding:60px 20px;
 text-align:center;
 }
 
-header h1{font-size:3rem;}
+header h1{
+font-size:3rem;
+margin-bottom:10px;
+}
 
+/* NAV */
 nav{
 display:flex;
 justify-content:center;
@@ -40,6 +45,7 @@ font-weight:bold;
 cursor:pointer;
 }
 
+/* GRID */
 .container{
 max-width:1100px;
 margin:auto;
@@ -52,6 +58,7 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
+/* CARD */
 .card{
 background:white;
 border-radius:15px;
@@ -79,7 +86,7 @@ color:#ff6b6b;
 font-weight:bold;
 }
 
-button{
+button.add{
 background:#ff6b6b;
 color:white;
 border:none;
@@ -89,12 +96,32 @@ cursor:pointer;
 margin-top:10px;
 }
 
+/* FOOTER */
 footer{
 text-align:center;
 padding:30px;
 background:#222;
 color:white;
 margin-top:40px;
+}
+
+footer a{
+color:#ff6b6b;
+text-decoration:none;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+font-size:20px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 </style>
 </head>
@@ -103,7 +130,7 @@ margin-top:40px;
 
 <header>
 <h1>SaVía Dulce 🍓</h1>
-<p>Pastelería saludable, fitness y natural</p>
+<p>Pastelería saludable, fitness y natural sin culpa</p>
 </header>
 
 <nav>
@@ -123,7 +150,7 @@ margin-top:40px;
 <h3>Cheesecake Fit</h3>
 <p>Sin azúcar refinada + avena</p>
 <p class="price">4.50€</p>
-<button>Agregar</button>
+<button class="add">Añadir</button>
 </div>
 </div>
 
@@ -134,29 +161,29 @@ margin-top:40px;
 <h3>Brownie Proteico</h3>
 <p>Cacao puro + proteína</p>
 <p class="price">3.90€</p>
-<button>Agregar</button>
+<button class="add">Añadir</button>
 </div>
 </div>
 
-<!-- BIZCOCHO NORMAL -->
+<!-- BIZCOCHO -->
 <div class="card low">
 <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec" alt="">
 <div class="card-content">
 <h3>Bizcocho Natural</h3>
 <p>Sin azúcar añadido</p>
 <p class="price">3.20€</p>
-<button>Agregar</button>
+<button class="add">Añadir</button>
 </div>
 </div>
 
-<!-- 🆕 BIZCOCHO DE CALABAZA -->
+<!-- CALABAZA -->
 <div class="card fit low">
 <img src="https://images.unsplash.com/photo-1608198092854-9c6a7c1c6b36" alt="">
 <div class="card-content">
 <h3>Bizcocho de Calabaza 🎃</h3>
-<p>Especias + calabaza natural + bajo en azúcar</p>
+<p>Calabaza + especias naturales + ligero</p>
 <p class="price">3.80€</p>
-<button>Agregar</button>
+<button class="add">Añadir</button>
 </div>
 </div>
 
@@ -167,7 +194,7 @@ margin-top:40px;
 <h3>Cookies Fit</h3>
 <p>Snack proteico post-entreno</p>
 <p class="price">2.80€</p>
-<button>Agregar</button>
+<button class="add">Añadir</button>
 </div>
 </div>
 
@@ -175,9 +202,25 @@ margin-top:40px;
 </div>
 
 <footer>
-<p>📸 Instagram: @sav_iadulce</p>
-<p>📞 +34 633 43 18 21</p>
+<p>📸 Instagram: 
+<a href="https://www.instagram.com/sav_iadulce?igsh=MTFneHdiNmhuamwwZA%3D%3D&utm_source=qr" target="_blank">
+@sav_iadulce
+</a>
+</p>
+
+<p>📲 WhatsApp: 
+<a href="https://wa.me/34633431821" target="_blank">
++34 633 43 18 21
+</a>
+</p>
+
+<p>🍰 SaVía Dulce | Dulces saludables hechos con amor</p>
 </footer>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a class="whatsapp" href="https://wa.me/34633431821" target="_blank">
+💬
+</a>
 
 <script>
 function filter(type){
